@@ -74,7 +74,10 @@ def predict():
 
     features = first_arr + second_arr + third_arr
     prediction =model.predict([features])  # features Must be in the form [[a, b]]
-    output = prediction[0]
+    if prediction[0] == 0:
+        output = 'No'
+    else:
+        output = 'Yes'
 
     return render_template('index.html', prediction_text='Prediction:  {}'.format(output))
 
